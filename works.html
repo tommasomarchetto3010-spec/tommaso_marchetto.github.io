@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works</title>
+
+    <link rel="stylesheet" href="works.css">
+    <script src="works.js" defer></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* BARRA VIDEO IN BASSO */
+
+        .video-dock {
+            position: fixed;
+            z-index: 100;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 25px 20px;
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .video-dock-label {
+            color: white;
+            font-size: 10px;
+            letter-spacing: 3px;
+            margin-bottom: 14px;
+        }
+
+        .video-dock-list {
+            display: flex;
+            gap: 18px;
+            overflow-x: auto;
+            padding: 3px 2px 10px;
+        }
+
+        .dock-file {
+            flex: 0 0 145px;
+            padding: 0;
+            border: none;
+            background: transparent;
+            color: white;
+            text-align: left;
+            cursor: pointer;
+            transition: transform 0.25s ease;
+        }
+
+        .dock-file:hover {
+            transform: translateY(-7px);
+        }
+
+        .dock-file img {
+            display: block;
+            width: 145px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 3px;
+        }
+
+        .dock-file span {
+            display: block;
+            margin-top: 8px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        /* FINESTRA VIDEO */
+
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 200;
+            inset: 0;
+            padding: 30px;
+            background: rgba(0,0,0,0.93);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal.active {
+            display: flex;
+        }
+
+        .video-modal-content {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .video-modal iframe {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+        }
+
+        .video-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 700px) {
+            .video-dock {
+                padding: 13px 12px 15px;
+            }
+
+            .dock-file {
+                flex-basis: 115px;
+            }
+
+            .dock-file img {
+                width: 115px;
+            }
+
+            .dock-file span {
+                font-size: 9px;
+            }
+
+            .video-modal {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SFONDO ANIMATO -->
+    <img
+        id="videoSfondo"
+        src="./BACK%20WORKS.gif"
+        alt="Sfondo Works"
+    >
+
+    <!-- BACK BUTTON -->
+    <a href="index.html" class="back-button">
+        ← BACK
+    </a>
+
+    <!-- BARRA CON GLI 8 VIDEO -->
+    <section class="video-dock">
+
+        <div class="video-dock-label">
+            SELECTED WORKS / 2026
+        </div>
+
+        <div class="video-dock-list">
+
+            <button class="dock-file" data-video="mJde16-LoJk">
+                <img src="https://img.youtube.com/vi/mJde16-LoJk/hqdefault.jpg" alt="">
+                <span>ALL ACCORDING TO PLAN</span>
+            </button>
+
+            <button class="dock-file" data-video="thrg-HyU2dQ">
+                <img src="https://img.youtube.com/vi/thrg-HyU2dQ/hqdefault.jpg" alt="">
+                <span>AWESOLAND PROJECT</span>
+            </button>
+
+            <button class="dock-file" data-video="IEu2m45yROs">
+                <img src="https://img.youtube.com/vi/IEu2m45yROs/hqdefault.jpg" alt="">
+                <span>CHROMA</span>
+            </button>
+
+            <button class="dock-file" data-video="3ck3NEvGZnQ">
+                <img src="https://img.youtube.com/vi/3ck3NEvGZnQ/hqdefault.jpg" alt="">
+                <span>FISHMAN RIG</span>
+            </button>
+
+            <button class="dock-file" data-video="t8clAO-3ePU">
+                <img src="https://img.youtube.com/vi/t8clAO-3ePU/hqdefault.jpg" alt="">
+                <span>MOVING OUT</span>
+            </button>
+
+            <button class="dock-file" data-video="nyYPJlwBmf8">
+                <img src="https://img.youtube.com/vi/nyYPJlwBmf8/hqdefault.jpg" alt="">
+                <span>TUFFO ROTOSCOPIO</span>
+            </button>
+
+            <button class="dock-file" data-video="g0B7KDvueFY">
+                <img src="https://img.youtube.com/vi/g0B7KDvueFY/hqdefault.jpg" alt="">
+                <span>STOP MOTION EXERCISE</span>
+            </button>
+
+            <button class="dock-file" data-video="ECXdo53R0d4">
+                <img src="https://img.youtube.com/vi/ECXdo53R0d4/hqdefault.jpg" alt="">
+                <span>LINDEWOOD LAKE</span>
+            </button>
+
+        </div>
+    </section>
+
+    <!-- VIDEO INGRANDITO -->
+    <div class="video-modal" id="videoModal">
+
+        <div class="video-modal-content">
+
+            <button
+                class="video-close"
+                id="videoClose"
+                aria-label="Chiudi">
+                ×
+            </button>
+
+            <iframe
+                id="youtubePlayer"
+                src=""
+                title="Video selezionato"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+    </div>
+
+</body>
+</html>

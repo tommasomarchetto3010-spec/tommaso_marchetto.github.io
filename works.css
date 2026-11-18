@@ -1,0 +1,81 @@
+
+.video-dock-list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 25px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 10px 5px 16px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: auto;
+    scrollbar-color: white rgba(255,255,255,0.15);
+    cursor: grab;
+}
+
+.video-dock-list:active {
+    cursor: grabbing;
+}
+
+.video-dock-list::-webkit-scrollbar {
+    height: 8px;
+}
+
+.video-dock-list::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.15);
+}
+
+.video-dock-list::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
+
+.dock-file {
+    flex: 0 0 220px;
+}
+
+.dock-file img {
+    width: 220px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.dock-file span {
+    font-size: 12px;
+    margin-top: 11px;
+}
+/* SFONDO GIF A SCHERMO INTERO */
+#videoSfondo {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    object-fit: cover;
+    display: block;
+    z-index: -1;
+}
+
+/* PAGINA */
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    background: transparent;
+}
+
+/* BACK IN ALTO A SINISTRA */
+.back-button {
+    position: fixed;
+    top: 30px;
+    left: 35px;
+    z-index: 300;
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+}

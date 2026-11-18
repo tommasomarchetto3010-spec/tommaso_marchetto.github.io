@@ -1,0 +1,499 @@
+
+/* ========================================
+   RESET GENERALE
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    position: relative;
+    background: transparent;
+    color: rgb(247, 248, 248);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+
+/* ========================================
+   SFONDO ANIMATO
+======================================== */
+
+#videoSfondo {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+/* ========================================
+   HOMEPAGE
+======================================== */
+
+.home {
+    position: relative;
+    z-index: 1;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    padding: 80px 20px 20px;
+    background: transparent;
+}
+
+
+/* ========================================
+   VISO
+======================================== */
+
+#face {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    transition: transform 0.15s ease-out;
+}
+
+#face img {
+    display: block;
+
+    width: min(75vw, 500px);
+    max-width: 90vw;
+    height: auto;
+
+    object-fit: contain;
+    pointer-events: none;
+}
+
+
+/* ========================================
+   NOME TOMMASO MARCHETTO
+======================================== */
+
+.nome-tommaso {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.08em;
+
+    font-size: clamp(24px, 4.5vw, 48px);
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.nome-tommaso:hover {
+    transform: scale(1.2);
+}
+
+.nome-tommaso span {
+    display: inline-block;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.nome-tommaso span:hover {
+    transform: scale(1.6);
+    color: #f3f2f3;
+}
+
+.nome-tommaso .spazio {
+    width: 0.3em;
+    pointer-events: none;
+}
+
+
+/* ========================================
+   MENU NAVIGAZIONE
+======================================== */
+
+nav {
+    position: fixed;
+
+    top: 20px;
+    right: 30px;
+
+    z-index: 3000;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 30px;
+}
+
+nav a {
+    position: relative;
+
+    color: black;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+    pointer-events: auto;
+
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.6;
+}
+
+
+/* ========================================
+   ABOUT ME - ANIMAZIONE MANO
+======================================== */
+
+#mano-container {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    z-index: 10;
+    background: transparent;
+}
+
+#mano {
+    display: block;
+
+    width: 102%;
+    height: 102%;
+
+    max-width: 102vw;
+    max-height: 102dvh;
+
+    object-fit: contain;
+    object-position: center;
+
+    transform: translateX(30px);
+}
+
+
+/* ========================================
+   EFFETTO BLUR ABOUT ME
+======================================== */
+
+body.about-attivo > *:not(#mano-container):not(nav) {
+    filter: blur(6px);
+    transition: filter 0.4s ease;
+}
+
+
+/* ========================================
+   CONTACT ME
+======================================== */
+
+#contactMe {
+    position: fixed;
+
+    bottom: 30px;
+    right: 35px;
+
+    z-index: 1002;
+
+    color: black;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+#contactMe:hover {
+    opacity: 0.5;
+}
+
+
+/* ========================================
+   CONTACT ME - OVERLAY
+======================================== */
+
+#contactVideo {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+
+    z-index: 2000;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    justify-content: center;
+    align-items: center;
+
+    overflow-y: auto;
+    padding: 20px;
+
+    pointer-events: none;
+}
+
+#contactVideo[style*="display: flex"] {
+    pointer-events: auto;
+}
+
+
+/* ========================================
+   FOGLIO BIANCO CONTACT
+======================================== */
+
+.contact-sheet {
+    position: relative;
+
+    width: 90%;
+    max-width: 430px;
+    min-height: 300px;
+
+    background: white;
+    border-radius: 15px;
+    padding: 35px;
+
+    color: black;
+
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+
+    animation: contactAppear 0.3s ease;
+}
+
+.contact-sheet h2 {
+    font-size: 25px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: black;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 28px;
+}
+
+.contact-link {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    text-decoration: none;
+    color: black;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: bold;
+
+    transition: opacity 0.25s ease;
+}
+
+.contact-link span {
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 0;
+    color: #777;
+    overflow-wrap: anywhere;
+}
+
+.contact-link:hover {
+    opacity: 0.5;
+}
+
+
+/* ========================================
+   PULSANTE CHIUSURA CONTACT
+======================================== */
+
+#closeVideo {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+
+    background: none;
+    border: none;
+
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
+
+    transition: opacity 0.2s ease;
+}
+
+#closeVideo:hover {
+    opacity: 0.5;
+}
+
+
+/* ========================================
+   ANIMAZIONE CONTACT
+======================================== */
+
+@keyframes contactAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ========================================
+   VERSIONE SMARTPHONE
+======================================== */
+
+@media (max-width: 600px) {
+
+    nav {
+        top: 25px;
+        right: 0;
+        left: 0;
+
+        justify-content: center;
+        gap: 16px;
+    }
+
+    nav a {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    #face img {
+        width: min(85vw, 400px);
+    }
+
+    .nome-tommaso {
+        font-size: clamp(22px, 6vw, 34px);
+        letter-spacing: 2px;
+    }
+
+    /*
+       ABOUT ME:
+       La GIF occupa lo spazio disponibile,
+       mantenendo le proporzioni originali.
+    */
+
+    #mano-container {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+
+        inset: 0;
+
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+    #mano {
+        width: 100vw;
+        height: 100dvh;
+
+        max-width: 100vw;
+        max-height: 100dvh;
+
+        object-fit: contain;
+        object-position: center center;
+
+        transform: none;
+    }
+
+    #contactMe {
+        bottom: 22px;
+        right: 20px;
+
+        font-size: 11px;
+    }
+
+    .contact-sheet {
+        width: 92%;
+        max-width: 380px;
+        min-height: 300px;
+        padding: 28px;
+    }
+
+    .contact-sheet h2 {
+        font-size: 22px;
+    }
+
+    .contact-link span {
+        font-size: 12px;
+    }
+
+    #closeVideo {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+}
+
+
+/* ========================================
+   SMARTPHONE PICCOLI
+======================================== */
+
+@media (max-width: 380px) {
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .contact-sheet {
+        padding: 24px;
+    }
+
+}
